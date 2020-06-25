@@ -1,0 +1,68 @@
+{% extends "gallery/gallery_base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ album.title }}
+{% endblock %}
+
+{% block header %}
+    <script type="text/javascript" src="{% static 'gallery/js/image_upload.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gallery/js/infinite_scroll.js' %}"></script>
+    <script type="text/css" src="{% static 'gallery/css/gallery.css' %}"></script>
+    <style>
+
+    </style>
+    {% include "gallery/partials/justify_images.html" %}
+    <div>
+      <div class="section section-header-blog background_album_detail">
+          <div class="parallax filter filter-color-black">
+          </div>
+              <div class="container">
+                  <div class="content">
+                      <div class="title-area">
+                          <h1 style="font-family: NorseBold;">{{ album.title }}</h1>
+                      </div>
+                  </div>
+              </div>
+          </div>>
+      </div>
+    </div>
+{% endblock %}
+
+{% block bar_title %}
+    <div id="title"> {{ album.title }} </div>
+{% endblock %}
+
+
+{% block content %}
+
+<!--<h2>{{ album.title }}</h2>-->
+
+{% include "gallery/partials/image_upload_form.html" %}
+
+<div id="image_container">
+
+    {% for image in images %}
+
+        <a href="{% url 'gallery:album_image_detail' album.pk image.pk image.slug %}">
+
+            {% include "gallery/partials/thumbnail.html" %}
+
+        </a>
+
+    {% endfor %}
+
+
+    {% if not album.images.all and user.is_authenticated %}
+
+        <div id="empty_placeholder">
+            Drag images into this box to upload to the album
+        </div>
+
+    {% endif %}
+
+</div>
+
+
+
+{% endblock %}

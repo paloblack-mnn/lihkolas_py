@@ -1,0 +1,141 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+{% block body_block %}
+
+<div class="section section-header" >
+    <div class="parallax filter filter-color-black">
+        <div class="image" style="
+         background-image: url({% static 'img/dsc_8111a.jpg' %});" >
+        </div>
+        <div class="container">
+            <div class="content">
+                <h1 style="font-family: NorseBold;font-size: 72px;">Lihkolas Husky</h1>
+                <div class="separator-container">
+                    <div class="separator line-separator">♦</div>
+                </div>
+                <h5 style="font-family: Norse;">{{ pages.name }}</h5>
+            </div>
+        </div>
+    </div>
+    <a href="" data-scroll="true" data-id="#firstSection" class="scroll-arrow hidden-xs hidden-sm">
+        <i class="fa fa-angle-down"></i>
+    </a>
+</div>
+
+<!-- First section: Who are we? --!>
+
+<div class="section" id="firstSection">
+    <div class="container">
+        <div class="title-area">
+            <h2 style="font-family: NorseBold;">Who are we?</h2>
+            <div class="separator separator-danger">♦</div>
+            <p class="description">
+                {{ pages.text }}
+            </p>
+            <a href="about-us.php" class="btn btn-danger btn-fill" style="font-family: Norse;font-size: 18px; bottom: 5px;">Read more</a>
+        </div>
+    </div>
+
+    <div class="parallax parallax-small">
+        <div class="image" style="background-image: url({% static 'img/dsc_8111a.jpg' %});"></div>
+    </div>
+</div>
+
+<!-- Second section: Shop --!>
+
+<div class="section section-our-projects section-our-projects-fluid">
+
+    <div class="title-area">
+        <h2 style="font-family: NorseBold;">Our little Shop</h2>
+        <div class="separator separator-danger">♦</div>
+        <p class="description">
+            My shop!
+        </p>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class='col-lg-4 col-md-6 col-sm-6' >
+            <div class='project'>
+                <img src='' />
+                <a class='over-area' href=''>
+                    <div class='content'>
+                    <label class='label label-danger label-fill'></label>  <label class='label label-danger label-fill'></label>  <label class='label label-danger label-fill'>".$taxonomy_path_3."</label>
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Third section: Blog --!>
+
+<div class="section section-card-blog" style="background-color: white!important;margin-top: -50px;">
+    <div class="container">
+        <div class="title-area">
+            <h5 style="font-family: Norse;" class="text-gray">Don't miss</h5>
+            <h2 style="font-family: NorseBold;">Our Stories</h2>
+            <div class="separator separator-danger">✻</div>
+        </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="card card-blog">
+                        <a href="./blog-post.php?title=<?php echo $link_section_1 ;?>&id=<?php echo $id_section_1 ?>" class="header">
+                    <img src="./assets/img/<?php echo $image_section_1 ; ?>" class="image-header">
+                </a>
+                        <div class="content">
+                            <div class="circle-black">
+                                <div class="circle">
+                                    <div class="date-wrapper">
+                                        <span class="month"></span>
+                                        <span class="date"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="./blog-post.php?title=<?php echo $link_section_1 ;?>&id=<?php echo $id_section_1 ?>" class="card-title"><h3 style="font-family: NorseBold; font-size: 24px;"><?php echo $title_section_1; ?></h3></a>
+                            <h6 class="card-category text-warning"></h6>
+                            <p class="text-description text-gray"></p>
+                        </div>
+                    </div>
+                </div>
+                    <center><a href="./blog-posts.php" class="btn btn-danger btn-fill" style="font-family: Norse;font-size: 18px; bottom: 5px; ">More Stories</a></center>
+            </div>
+    </div>
+</div>
+
+<!-- Fourth section: Follow us --!>
+
+<div class="section section-get-started">
+    <div class="parallax filter filter-color-black">
+        <div class="image" style="background-image: url('./assets/img/header-13.jpeg')">
+        </div>
+        <div class="container">
+            <div class="title-area">
+                <h2 class="text-white" style="font-family: NorseBold;">Want to follow us?</h2>
+                <div class="separator">♦</div>
+                <p class="description">
+                    We share adventures, updates, cool photos, advices..Don't hesitate to keep in touch!
+                </p>
+            </div>
+
+            <div class="button-get-started">
+                <a href="https://www.facebook.com/lihkolas.husky/">
+                    <button type="button" class="btn btn-lg btn-danger btn-fill " style="font-family: NorseBold; font-size: 24px; margin-right: 10px;"><i class="fa fa-facebook-square"></i> lihkolas.husky</button>
+                </a>
+                <a href="https://www.instagram.com/lihkolas_husky/?hl=en">
+                    <button type="button" class="btn btn-lg btn-danger btn-fill " style="font-family: NorseBold; font-size: 24px;margin-left: 10px;"><i class="fa fa-instagram"></i> lihkolas_husky</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

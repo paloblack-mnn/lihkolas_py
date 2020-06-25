@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load  static %}
+{% block content %}
+        <div class="section section-header-blog">
+            <div class="parallax filter filter-color-black">
+              <div class="image" style="background-image:url('{{ post.thumbnail.url }}')">
+              </div>
+              <div class="container">
+                  <div class="content">
+                      <h1 style="font-family: NorseBold;">{{ post.title }}</h1>
+                      {% for cat in post.categories.all %}
+                       <h3 style="font-family: Norse;" class="subtitle">{{ cat }}</h3>
+                      {% endfor %}
+                  </div>
+                </div>
+            </div>
+       </div>
+       <div style="padding-bottom: 0px!important;" class="section">
+           <div class="container">
+               <div class="row">
+                  <div class="col-md-8">
+                      <div style="font-family: Lato; font-size: 18px!important;" class="content-blog">
+                          {{ post.content | safe }}
+                      </div>
+                       <div class="separator separator-danger">✻</div>
+                   </div>
+                   <div class="col-md-3 col-md-offset-1 text-center" style="border: 1px;">
+                       <div class="author text-center">
+
+                           <div class="description text-center">
+                              <a href="https://instawidget.net/v/user/Lihkolas_husky" id="link-f1b36464c7170495e78ce0ab64dbcdc62b1bb758fd4246f89764889a77217cde">@Lihkolas_husky</a>
+                               <script src="https://instawidget.net/js/instawidget.js?u=f1b36464c7170495e78ce0ab64dbcdc62b1bb758fd4246f89764889a77217cde&width=300px"></script>
+
+                           </div>
+                        </div>
+                   </div>
+               </div>
+            </div>
+        </div>
+
+        <div style="padding-top: 0px!important;" class="section">
+            <div class="container">
+                <h2 style="font-family: NorseBold;">Comments</h2>
+                <div style="padding-left: 10px;" class="row">
+                    <div class="col-md-8">
+                        <div class="media-area">
+
+                        {% for comment in post.get_comments %}
+                                <div class="media">
+                                    <div class="media-body">
+                                        <h3 style="font-family: NorseBold;" class="media-heading">{{ comment.user.username }}</h3>
+                                        <h5 style="font-family: NorseBold;" class="text-muted pull-right">{{ comment.timestamp|timesince }} ago</h5>
+                                        <p>
+                                            {{ comment.content }}
+                                        </p>
+                                        <div class="media-footer">
+                                            <button class="btn btn-info btn-simple">
+                                            </button>
+                                            <button class="btn btn-danger btn-simple pull-right">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                              {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="section">
+                <div class="container">
+                    <div class="contact-form">
+                        <form method="post">
+                          {% csrf_token %}
+
+                            <div class="row">
+
+                                <div class="col-md-8">
+                                  {{ form }}
+
+                                    <input type="submit" value="Post Comment" class="btn btn-danger btn-fill pull-right">
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="section section-gray section-card-blog">
+            <div class="container">
+                <div class="title-area">
+                    <h5 style="font-family: Norse;" class="text-gray">Don't miss</h5>
+                    <h2 style="font-family: NorseBold;">More Chapters of our adventure</h2>
+                    <div class="separator separator-danger">✻</div>
+                </div>
+                <div class="row">
+                    <?php
+                        $post = "SELECT * FROM posts WHERE section = 1";
+                        $post_dat = $mysqli->query($post);
+                        while($row_post = $post_dat->fetch_array()){;
+                        $id_section_1 = $row_post['id'];
+                        $title_section_1 = $row_post['title'];
+                        $tag_section_1 = $row_post['tag'];
+                        $link_section_1 = $row_post['link'];
+                        $content_section_1 = $row_post['content'];
+                        $content_section_1_sub = substr($content_section_1, 8, 120);
+                        $date_section_1 = $row_post['date'];
+                        $image_section_1 = $row_post['main_image'];
+
+              ?>
+
+                        <div class="col-md-4">
+                            <div class="card card-blog">
+                                <a href="./blog-post.php?title=<?php echo $link_section_1 ;?>&id=<?php echo $id_section_1 ?>" class="header">
+                            <img src="./assets/img/<?php echo $image_section_1 ; ?>" class="image-header">
+                        </a>
+                                <div class="content">
+                                    <div class="circle-black">
+                                        <div class="circle">
+                                            <div class="date-wrapper">
+                                                <span class="month"><?php echo date("M", strtotime($date_section_1)) ?></span>
+                                                <span class="date"><?php echo date("d", strtotime($date_section_1)) ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="./blog-post.php?title=<?php echo $link_section_1 ;?>&id=<?php echo $id_section_1 ?>" class="card-title"><h3 style="font-family: NorseBold; font-size: 24px;"><?php echo $title_section_1; ?></h3></a>
+                                    <h6 class="card-category text-warning"><?php echo $tag_section_1 ?> </h6>
+                                    <p class="text-description text-gray">
+                                        <?php echo $content_section_1_sub; ?>...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <? } ?>
+                </div>
+
+            </div>
+        </div>
+{% endblock content %}
+</html>

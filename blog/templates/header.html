@@ -1,0 +1,199 @@
+<!--
+
+            ,.~:::::==.                                     ,,  ,,
+         .:    :::::::::?..                               ?EF=C3P`
+       ,;wwszzzxsc;::::::::\          EttQLcEE2x,zSE2x  @tttLzSEZh. ;ttt9ydEE2x
+     ,S533333333333Z5e;:::::3.       {333Z53333EE33333.J533ZE33333L E333Zj33333
+   z5333333eFFe2E333333Qx:::z3.     .E333  [335L ]333F E333F |333V J3337  E333F
+ .E33332F.::::::::5E3333X2c:tz[     {333F J533[ :E33J {3337  E333L E333L J333V
+ E3335F ::::::::::::X333313ctt]     ^^^"  "^^^  "^^^` "^^^` "^^^" '^^^"  "^^^`
+|3333F  :::::::::::::]3333E3tt[                        @52Z2EF
+|3333L:::::::::::::::{3333[tt3    ;wwwy,czzs ,wczs. ,wwwy,wsz>.  pwww.,czzs
+|3333L\::::::::::::::[3333Et2`    E333533333333333[ E333333333J JE333E33333L
+ E3333.'c:::::::::::Z3333t3F     {333/`J3337`JE333 J333V` E333F E333F`}3333
+ "Q3333h.!=;:::::;2533332^      .E333  E33Q. {333F E33EL J3337 J3337  E333L
+   \E33333Zzz9zSE333335*        !FFF* ?FFF* -FFF* ?FFF*  FFFFL FFFFL ?FFF*
+     "1j33333333333jP^
+
+Made with love
+                                                            Front-end: Carlos
+                                                             Back-end: Carlos
+                                                      Logo&Typography: Carlos
+-->
+{% load  static %}
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120828368-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-120828368-2');
+    </script>
+
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/wolf_copy.png">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js'></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        <?php echo $title; ?> | Lihkolas Husky</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/gaia.css' %}" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Cambo|Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/fonts/pe-icon-7-stroke.css'}" rel="stylesheet">
+    <link href="{% static 'css/github.css'}" rel="stylesheet">
+    <style type="text/css">
+        @font-face {
+            font-family: "Norse";
+            font-style: normal;
+            font-weight: normal;
+            src: url("{% static 'css/fonts/Norse.woff' %}") format("woff"), url("{% static 'css/fonts/Norse.ttf' %}") format("truetype");
+        }
+
+        @font-face {
+            font-family: "NorseBold";
+            font-style: normal;
+            font-weight: normal;
+            src: url("{% static 'css/fonts/Norse-Bold.woff' %}") format("woff"), url("{% static 'css/fonts/Norse-Bold.ttf' %}") format("truetype");
+        }
+
+        body {
+            font-family: Norse;
+        }
+
+        p {
+            font-family: Lato!important;
+        }
+
+        h2 {
+            font-family: NorseBold!important;
+        }
+
+        h3 {
+            font-family: NorseBold!important;
+        }
+
+        h4 {
+            font-family: NorseBold!important;
+        }
+
+        img {
+            width: 100%!important;
+            height: auto!important;
+        }
+
+        .website {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0;
+            width: 0;
+            z-index: -1;
+        }
+        .image_post {
+            max-height: 1000px;
+        }
+
+        @media screen and (min-width: 992px) {
+            .image_post {
+                max-height: 190px;
+            }
+            .card_post {
+                max-height: 370px;
+            }
+            @media screen and (min-width: 1200px) {
+                .image_post {
+                    max-height: 210px;
+                }
+    </style>
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+        <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="#" class="navbar-brand" style="font-family: Norse; font-size: 24px;">
+                Lihkolas Husky
+            </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li>
+                        <a href="{% url 'index' %}" style="font-family: Norse; font-size: 18px;">Home</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: Norse; font-size: 18px;">Adventures <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-danger">
+                            <?php
+                        $consulta2 = "SELECT * FROM posts WHERE menu = 1";
+                        $dat2 = $mysqli->query($consulta2);
+                        while($res2 = $dat2->fetch_array()){
+                            $post1 = $res2['title'];
+                            $link1 = $res2['link'];
+                            $id1 = $res2['id'];
+
+                        ?>
+                                <li>
+                                    <a href="./blog-post.php?title=<?php echo $link1 ;?>&id=<?php echo $id1 ;?>" style="font-family: Norse;font-size: 16px;">
+                                        <?php echo $post1; ?>
+                                    </a>
+                                </li>
+                                <?php
+                         };
+                        ?>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{% url 'gallery:album_list' %}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-family: Norse;font-size: 18px;">Galleries <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-danger">
+                            <?php
+                        $consulta4 = "SELECT * FROM gallerie where public=1";
+                        $dat4 = $mysqli->query($consulta4);
+                        while($res4 = $dat4->fetch_array()){
+                            $name1 = $res4['name'];
+                            $root1 = $res4['root'];
+                        ?>
+
+                                <li>
+                                    <a href="gallery.php?category=<?php echo $root1 ;?>" style="font-family: Norse;font-size: 16px;">
+                                        <?php echo $name1; ?>
+                                    </a>
+                                </li>
+                                <?php
+                         };
+                        ?>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="portfolio.php" style="font-family: Norse;font-size: 18px;">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="https://www.etsy.com/shop/TheHandyViking" class="btn btn-danger btn-fill" style="font-family: Norse;font-size: 18px; bottom: 5px;">Shop</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+
+</head>

@@ -19,7 +19,7 @@ pilkit==2.0
 Pillow==6.2.1
 pycparser==2.19
 pyetsy==0.4.10
-Pygments==2.6.1
+Pygments==2.7.4
 pyquery==1.4.1
 python-dateutil==2.8.1
 pytz==2019.3

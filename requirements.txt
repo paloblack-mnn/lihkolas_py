@@ -4,7 +4,7 @@ certifi==2019.11.28
 cffi==1.14.0
 cssselect==1.1.0
 d==0.2.2
-Django==1.11.29
+Django==2.2.24
 django-appconf==1.0.3
 django-batch-uploader==0.14
 django-imagekit==4.0.2

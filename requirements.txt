@@ -16,7 +16,7 @@ Faker==2.0.4
 lxml==4.5.0
 Markdown==3.2.1
 pilkit==2.0
-Pillow==6.2.1
+Pillow==8.3.2
 pycparser==2.19
 pyetsy==0.4.10
 Pygments==2.6.1
